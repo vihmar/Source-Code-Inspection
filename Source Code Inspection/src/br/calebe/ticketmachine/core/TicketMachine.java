@@ -2,12 +2,10 @@ package br.calebe.ticketmachine.core;
 
 import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
 import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-/**
- *
- * @author Calebe de Paula Bianchini
- */
 public class TicketMachine {
 
     protected int valor;
@@ -21,9 +19,10 @@ public class TicketMachine {
 
     public void inserir(int quantia) throws PapelMoedaInvalidaException {
         boolean achou = false;
-        for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) {
+        for (int i = 0; i < papelMoeda.length; i++) {
+            if (papelMoeda[i] == quantia) {
                 achou = true;
+                break; 
             }
         }
         if (!achou) {
@@ -37,7 +36,20 @@ public class TicketMachine {
     }
 
     public Iterator<Integer> getTroco() {
-        return null;
+        int troco = saldo - valor;
+        if (troco < 0) {
+            throw new IllegalStateException("Não há troco a ser fornecido.");
+        }
+
+        List<Integer> notasDeTroco = new ArrayList<>();
+        for (int i = papelMoeda.length - 1; i >= 0; i--) {
+            while (troco >= papelMoeda[i]) {
+                notasDeTroco.add(papelMoeda[i]);
+                troco -= papelMoeda[i];
+            }
+        }
+
+        return notasDeTroco.iterator();
     }
 
     public String imprimir() throws SaldoInsuficienteException {
