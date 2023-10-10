@@ -11,10 +11,14 @@ public class PapelMoeda {
     }
 
     public int getValor() {
+        
         return valor;
+        
     }
 
     public int getQuantidade() {
+        
         return quantidade;
+        
     }
 }
