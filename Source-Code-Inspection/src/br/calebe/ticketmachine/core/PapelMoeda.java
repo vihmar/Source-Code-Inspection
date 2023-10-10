@@ -1,4 +1,3 @@
-<<<<<<< HEAD:Source-Code-Inspection/src/br/calebe/ticketmachine/core/PapelMoeda.java
 package br.calebe.ticketmachine.core;
 
 public class PapelMoeda {
@@ -19,7 +18,7 @@ public class PapelMoeda {
         return quantidade;
     }
 }
-=======
+
 package br.calebe.ticketmachine.core;
 
 public class PapelMoeda {
@@ -44,4 +43,3 @@ public class PapelMoeda {
         
     }
 }
->>>>>>> 09cf31c9ba67d9a3e2112df3d742c1ee4b237fdd:Source Code Inspection/src/br/calebe/ticketmachine/core/PapelMoeda.java
