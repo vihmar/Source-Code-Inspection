@@ -9,6 +9,9 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    
   build:
     steps:
     - name: Checkout code
