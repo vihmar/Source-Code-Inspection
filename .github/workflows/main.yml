@@ -3,15 +3,10 @@ name: CI - Testes Unitários
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
+  build:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -20,19 +15,16 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'adopt'
 
     - name: Configure and download Junit
       run: wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
 
     - name: Build project
-      run: javac -d . /Source Code Inspection/src/br/calebe/ticketmachine/**/*.java
+      run: mvn clean install
 
     - name: Run unit tests
       run: |
         mvn test > Resultado_Testes.txt
-        echo "Testes em andamento"
-        java -cp . org.junit.platform.console.ConsoleLauncher --select-class your.test.ClassName
         if [ $? -eq 0 ]; then
           echo "Testes concluídos com sucesso"
         else
