@@ -38,9 +38,3 @@ jobs:
           echo "Erro nos testes"
           exit 1
         fi
-
-    - name: Upload test outputs
-      uses: actions/upload-artifact@v2
-      with:
-        name: Test Results
-        path: Resultado_Testes.txt
