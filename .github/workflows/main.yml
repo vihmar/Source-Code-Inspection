@@ -20,15 +20,18 @@ jobs:
         distribution: 'adopt'
 
     - name: Configure and download Junit
-      run: wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
-
+      run: |
+           wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
+           wget https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.8.0/junit-jupiter-engine-5.8.0.jar
+           wget https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.8.0/junit-jupiter-api-5.8.0.jar
+           
     - name: Build project
       run: javac -d . Source-Code-Inspection/src/br/calebe/ticketmachine/**/*.java
 
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
-        java -cp . org.junit.platform.console.ConsoleLauncher --select-class your.test.ClassName
+        java -cp . org.junit.platform.console.ConsoleLauncher --scan-classpath
         if [ $? -eq 0 ]; then
           echo "Testes concluídos com sucesso"
         else
