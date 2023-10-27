@@ -10,6 +10,13 @@ import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
 
 public class TrocoTest {
 
+    private Troco troco;
+
+    @Before
+    public void setUp() {
+        troco = new Troco(187);
+    }
+    
     @Test
     public void testTrocoIterator() {
         Iterator<PapelMoeda> iterator = troco.getIterator();
