@@ -23,12 +23,12 @@ jobs:
     - name: Build project
       run: |
            mvn -B package --file pom.xml
-           mvn clean install
+           mvn clean compile install
 
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
-        mvn test -Dtest=br.calebe.ticketmachine.*
+        mvn test -Dtest=/Source-Code-Inspection.src.br.calebe.ticketmachine.*
         if [ $? -eq 0 ]; then
           echo "Testes concluídos com sucesso"
         else
