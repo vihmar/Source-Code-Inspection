@@ -28,7 +28,7 @@ jobs:
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
-        mvn test -Dtest=/Source-Code-Inspection.src.br.calebe.ticketmachine.*
+        mvn test -Dtest=br.calebe.ticketmachine.test.*
         if [ $? -eq 0 ]; then
           echo "Testes concluídos com sucesso"
         else
