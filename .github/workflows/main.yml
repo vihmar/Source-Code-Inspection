@@ -28,5 +28,5 @@ jobs:
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
-        run: mvn test --file pom.xml
+        mvn test --file pom.xml
         
