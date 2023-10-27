@@ -35,4 +35,3 @@ jobs:
           echo "Erro nos testes"
           exit 1
         fi
-      working-directory: /Source-Code-Inspection
