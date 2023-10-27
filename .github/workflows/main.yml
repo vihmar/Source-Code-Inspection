@@ -22,11 +22,11 @@ jobs:
     
     - name: Build project
       run: |
-           mvn -B package --file pom.xml
-           mvn clean compile install
+           mvn -B clean package
 
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
         mvn test --file pom.xml
+        echo "Testes finalizados"
         
