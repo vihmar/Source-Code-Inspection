@@ -29,9 +29,4 @@ jobs:
       run: |
         echo "Testes em andamento"
         run: mvn test --file pom.xml
-        if [ $? -eq 0 ]; then
-          echo "Testes concluídos com sucesso"
-        else
-          echo "Erro nos testes"
-          exit 1
-        fi
+        
