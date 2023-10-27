@@ -28,7 +28,7 @@ jobs:
     - name: Run unit tests
       run: |
         echo "Testes em andamento"
-        mvn test -Dtest=br.calebe.ticketmachine.test.*
+        run: mvn test --file pom.xml
         if [ $? -eq 0 ]; then
           echo "Testes concluídos com sucesso"
         else
